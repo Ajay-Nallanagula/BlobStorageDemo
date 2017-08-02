@@ -39,7 +39,7 @@ namespace AzureStorageDemo
                         var blobClientAppConfig = FetchConnectionStringAppConfig();
 
                         Console.WriteLine("Please enter the container name, If mentioned container doesn't exist new container will be created");
-                        string containerName = Console.ReadLine(); //"containerfromazureportal";  "newcontaineraj"
+                        string containerName = Console.ReadLine(); 
 
                         var cloudBlobContainer = GetContainerRefrence(containerName, blobClientAppConfig);
 
@@ -460,7 +460,7 @@ namespace AzureStorageDemo
         /// <returns></returns>
         private static CloudStorageAccount ParseConnectionStr()
         {
-            var connStr = CloudConfigurationManager.GetSetting("BlobStorageConnection");
+            var connStr = CloudConfigurationManager.GetSetting("StorageConnection");
             CloudStorageAccount cloudStorageAccountAppConfig = CloudStorageAccount.Parse(connStr);
             return cloudStorageAccountAppConfig;
         }
