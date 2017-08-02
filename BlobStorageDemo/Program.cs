@@ -367,7 +367,7 @@ namespace AzureStorageDemo
                 //Upload Blob To a Container :
                 if (isUpload.ToUpper().Equals("Y"))
                 {
-                    Console.WriteLine(@"Please Enter the destination path of file to be uploaded :path\Name.txt format");
+                    Console.WriteLine(@"Please Enter the destination path of file to be uploaded");
                     pathToUpLoad = Console.ReadLine();
                     // pathToUpLoad = @"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads\SomeSampleImage.jpg";
                     UploadBlobToContainer(cloudBlobName, cloudBlobContainer, pathToUpLoad);
@@ -378,9 +378,9 @@ namespace AzureStorageDemo
 
                 if (isDownload.ToUpper().Equals("Y"))
                 {
-                    Console.WriteLine(@"Please Enter the destination path where to download :path\Name.jpg format");
+                    Console.WriteLine(@"Please Enter the destination path where to download");
                     pathToUpLoad = Console.ReadLine();
-                    //pathToUpLoad = @"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads\SomeSampleImageDL3.jpg";
+                    //pathToUpLoad = @"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads";
                     DownloadBlobF(cloudBlobName, cloudBlobContainer, pathToUpLoad);
                 }
 
