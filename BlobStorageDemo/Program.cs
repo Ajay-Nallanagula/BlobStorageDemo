@@ -39,7 +39,7 @@ namespace AzureStorageDemo
                         var blobClientAppConfig = FetchConnectionStringAppConfig();
 
                         Console.WriteLine("Please enter the container name, If mentioned container doesn't exist new container will be created");
-                        string containerName = Console.ReadLine(); 
+                        string containerName = Console.ReadLine(); //"containerfromazureportal";  "newcontaineraj"
 
                         var cloudBlobContainer = GetContainerRefrence(containerName, blobClientAppConfig);
 
@@ -313,6 +313,7 @@ namespace AzureStorageDemo
         #region AppendBlob
         private static void CreateAppendBlob(CloudBlobContainer cloudBlobContainer)
         {
+            string pathToUpLoad = string.Empty;
             Console.WriteLine("Please Enter the Append Blob Name");
             var appendBlobName = Console.ReadLine();
             CloudAppendBlob cloudAppendBlob = cloudBlobContainer.GetAppendBlobReference(appendBlobName);
@@ -332,9 +333,13 @@ namespace AzureStorageDemo
             var choice = Console.ReadLine();
             if (choice.ToUpper().Equals("Y"))
             {
-                using (var stream = new FileStream($@"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads\AppendBlobEx{Guid.NewGuid()}.txt", FileMode.Create))
+                Console.WriteLine(@"Please Enter the destination path of file to be uploaded without trialing \\ ");
+                pathToUpLoad = Console.ReadLine();
+                pathToUpLoad = pathToUpLoad + $@"\AppendBlobEx{Guid.NewGuid()}.txt";
+                using (var stream = new FileStream(pathToUpLoad, FileMode.Create)) // $@"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads\AppendBlobEx{Guid.NewGuid()}.txt"
                 {
                     cloudAppendBlob.DownloadToStream(stream);
+                    Console.WriteLine("Download is successful");
                 }
             }
         }
@@ -460,7 +465,7 @@ namespace AzureStorageDemo
         /// <returns></returns>
         private static CloudStorageAccount ParseConnectionStr()
         {
-            var connStr = CloudConfigurationManager.GetSetting("StorageConnection");
+            var connStr = CloudConfigurationManager.GetSetting("BlobStorageConnection");
             CloudStorageAccount cloudStorageAccountAppConfig = CloudStorageAccount.Parse(connStr);
             return cloudStorageAccountAppConfig;
         }
