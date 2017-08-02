@@ -134,6 +134,13 @@ namespace AzureStorageDemo
 
                         break;
                     }
+
+                case 4:
+                    {
+                        Console.WriteLine("File storage demo isn't been implemented yet, its under progress");
+                        break;
+                    }
+
                 default:
                     {
                         Console.WriteLine("Please make a valid choice!");
@@ -336,7 +343,7 @@ namespace AzureStorageDemo
                 Console.WriteLine(@"Please Enter the destination path of file to be uploaded without trialing \\ ");
                 pathToUpLoad = Console.ReadLine();
                 pathToUpLoad = pathToUpLoad + $@"\AppendBlobEx{Guid.NewGuid()}.txt";
-                using (var stream = new FileStream(pathToUpLoad, FileMode.Create)) // $@"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads\AppendBlobEx{Guid.NewGuid()}.txt"
+                using (var stream = new FileStream(pathToUpLoad, FileMode.Create)) 
                 {
                     cloudAppendBlob.DownloadToStream(stream);
                     Console.WriteLine("Download is successful");
@@ -367,7 +374,7 @@ namespace AzureStorageDemo
                 //Upload Blob To a Container :
                 if (isUpload.ToUpper().Equals("Y"))
                 {
-                    Console.WriteLine(@"Please Enter the destination path of file to be uploaded");
+                    Console.WriteLine(@"Please Enter the destination path of file to be uploaded :path\Name.txt format");
                     pathToUpLoad = Console.ReadLine();
                     // pathToUpLoad = @"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads\SomeSampleImage.jpg";
                     UploadBlobToContainer(cloudBlobName, cloudBlobContainer, pathToUpLoad);
@@ -378,9 +385,9 @@ namespace AzureStorageDemo
 
                 if (isDownload.ToUpper().Equals("Y"))
                 {
-                    Console.WriteLine(@"Please Enter the destination path where to download");
+                    Console.WriteLine(@"Please Enter the destination path where to download :path\Name.jpg format");
                     pathToUpLoad = Console.ReadLine();
-                    //pathToUpLoad = @"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads";
+                    //pathToUpLoad = @"D:\TEXTBOOKS_REFERENCEES\AzureCodeDownloads\SomeSampleImageDL3.jpg";
                     DownloadBlobF(cloudBlobName, cloudBlobContainer, pathToUpLoad);
                 }
 
