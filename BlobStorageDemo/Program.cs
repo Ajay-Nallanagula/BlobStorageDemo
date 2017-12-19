@@ -15,7 +15,7 @@ using BlobStorageDemo.Models.TableEntites;
 using Microsoft.WindowsAzure.Storage.Queue;
 
 
-//https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs
+//https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs  testBranch2
 namespace AzureStorageDemo
 {
     class Program
